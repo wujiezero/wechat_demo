@@ -1,0 +1,27 @@
+<!--pages/lcims/communit/user/checkin/checkin.wxml-->
+<text>welcome to regist</text>
+<view class='contanior'>
+  <view class='reg-input'>
+    姓名：
+      <input type='text' placeholder='输入姓名' bindblur="bindnameinput"></input>
+
+    微信号：
+      <input type='text' placeholder='输入微信号' bindblur='bindwechatnuminput'></input>
+    
+    工号：
+      <input type='text' placeholder='输入工号' bindblur='bindjobnuminput'></input>
+    
+    座位号：
+      <input type='text' placeholder='输入座位号' bindblur='bindlocatenuminput'></input>
+    
+    性别：
+    
+    自我介绍：
+    <textarea placeholder='输入自我介绍' bindblur='bindintroductioninput'></textarea>
+  </view>
+
+  <view class='btn-area'>
+    <button bindtap='submitReg'>提交注册</button>
+  </view>
+  
+</view>

@@ -27,6 +27,11 @@ Page({
       url: '../lcims/communit/user/login/login'
     })
   },
+  jump2community: function(){
+    wx.navigateTo({
+      url: '../lcims/communit/resource/share/commnuity',
+    })
+  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({

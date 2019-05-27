@@ -1,5 +1,6 @@
 <!--pages/lcims/communit/user/checkin/checkin.wxml-->
-<text>welcome to regist</text>
+<text>欢迎注册数据社区:</text>
+
 <view class='contanior'>
   <view class='reg-input'>
     姓名：
@@ -14,7 +15,12 @@
     座位号：
       <input type='text' placeholder='输入座位号' bindblur='bindlocatenuminput'></input>
     
-    性别：
+    <view class="sex-section">
+      <view class="section__title">性别：</view>
+      <picker bindchange="bindsexpicker" value="{{sexindex}}" range="{{sexarray}}">
+        <view class="picker">当前选择：{{sexarray[sexindex]}}</view>
+      </picker>
+    </view>
     
     自我介绍：
     <textarea placeholder='输入自我介绍' bindblur='bindintroductioninput'></textarea>

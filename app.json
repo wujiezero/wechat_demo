@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/lcims/communit/user/checkin/checkin",
     "pages/lcims/communit/user/login/login",
-    "pages/lcims/communit/resource/share/commnuity"
+    "pages/lcims/communit/resource/share/commnuity",
+    "pages/lcims/communit/resource/publish/publishres"
   ],
   "window": {
     "backgroundTextStyle": "light",

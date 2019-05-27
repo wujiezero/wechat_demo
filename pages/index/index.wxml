@@ -15,6 +15,7 @@
   <view>
     <button bindtap='jump2checkin'>去注册</button>
     <button bindtap='jump2login'>去登录</button>
+    <button bindtap='jump2community'>逛社区</button>
   </view>
   
 </view>

@@ -1,2 +1,11 @@
 <!--pages/lcims/communit/resource/share/commnuity.wxml-->
-<text>pages/lcims/communit/resource/share/commnuity.wxml</text>
+<text>欢迎来到社区！～</text>
+
+<view class='contanior'>
+
+  <view class='head'>
+    <button bindtap='jump2publish'>发布资源</button>
+  </view>
+  <view class='body'></view>
+  <view class='tail'></view>
+</view>

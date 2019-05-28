@@ -10,11 +10,16 @@
   
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
+    <text>⛱️️️</text>
+    <text>\n\n</text>
   </view>
   
-  <view>
+  <view class='before-login' wx:if="{{!islogin}}">
     <button bindtap='jump2checkin'>去注册</button>
+    <text>\n</text>
     <button bindtap='jump2login'>去登录</button>
+  </view>
+  <view class='after-login' wx:if="{{islogin}}">
     <button bindtap='jump2community'>逛社区</button>
   </view>
   

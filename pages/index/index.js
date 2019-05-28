@@ -4,10 +4,11 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'lcims wechat app demo',
+    motto: '欢迎来到数字社区',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    islogin:false
   },
   //事件处理函数
   bindViewTap: function() {
@@ -59,6 +60,10 @@ Page({
         }
       })
     }
+    this.setData({
+      islogin:app.globalData.islogin
+    })
+    console.log(this.data.islogin);
   },
   getUserInfo: function(e) {
     console.log(e)

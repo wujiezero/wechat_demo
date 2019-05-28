@@ -2,6 +2,7 @@
 App({
   data:{
     types:[],
+    
   },
   onLaunch: function () {
     // 展示本地存储能力
@@ -37,6 +38,7 @@ App({
     })
   },
   globalData: {
+    islogin: false,
     userInfo: null,
     user:{
       wechatnum:'', //微信号

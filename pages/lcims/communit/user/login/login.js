@@ -67,7 +67,7 @@ Page({
     if(true != this.loginValid()){
       return;
     }
-    console.log('开始发送请求');
+    //console.log('开始发送请求');
     var localtime = util.formatTime(new Date());
     wx.request({
       url: 'http://nevermore.myds.me:62/US/login',
@@ -92,6 +92,7 @@ Page({
           // 登录成功后，设置微信号和工号到全局参数
           app.globalData.user.wechatnum = loginuser.wechatnum;
           app.globalData.user.jobnum = loginuser.jobnum;
+          app.globalData.islogin = true;
           setTimeout(function () {
             wx.navigateTo({
               url: '../../../../index/index'
@@ -127,7 +128,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData.userInfo)
+    //console.log('islogin:' + app.globalData.userInfo)
   },
   /**
    * 用户点击右上角分享

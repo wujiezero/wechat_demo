@@ -1,4 +1,42 @@
 <!--pages/lcims/communit/resource/publish/publishres.wxml-->
 <text>欢迎来到资源发布页：</text>
+<view class='contanior'>
+  <text>分享有价值的资源吧～～</text>
+  <view class='head-view'>
 
-<text>和大家分享你认为有价值的资源吧～～</text>
+    <text>---------------</text>
+  </view>
+
+
+  <view class='body-view'>
+        <view class="section">
+          <view class="section__title">1.选择发布的资源类型：</view>
+          <picker bindchange="bindpickerchanged" value="{{type_index}}" range="{{types}}" range-key="{{'name'}}">
+            <view class="picker">
+              当前：{{types[type_index].name}}
+            </view>
+          </picker>
+          <view>---------------</view>
+        </view>
+
+        <view class='input-view'>
+          <text>2.标题：</text>
+          <input type='text' placeholder='这里输入文章标题' bindblur='bindjobnuminput' bindblur='bindtitle'>
+          </input>
+          <text>3.正文：</text>
+          <textarea maxlength="-1" bindblur="bindtext" 
+              placeholder='这里输入正文'>
+          </textarea>
+        </view>
+    <text>---------------</text>
+  </view>
+  <view class='btn-view'>
+    <button bindtap='publishRes'>发布</button>
+  </view>
+
+
+  <view class='foot-view'>
+  
+  </view>
+
+</view>

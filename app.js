@@ -1,5 +1,8 @@
 //app.js
 App({
+  data:{
+    types:[],
+  },
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -38,6 +41,7 @@ App({
     user:{
       wechatnum:'', //微信号
       jobnum:'' // 工号
-    }
+    },
+    
   }
 })

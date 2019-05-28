@@ -1,34 +1,35 @@
 // pages/lcims/communit/resource/share/commnuity.js
 var app = getApp();
 var util = require('../../../../../utils/util.js');
-
+var tmp_types;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-      currnetType:1,
-      types:[],
-      list:[],
+    type_index: 0,
+    curTypeId: 0,
+    types: [],
+    list: [],
   },
-  jump2publish: function(){
+  jump2publish: function() {
     wx.navigateTo({
       url: '../publish/publishres',
     })
   },
   // 用户登录状态校验
-  loginStatusValid: function(){
+  loginStatusValid: function() {
     var loginuser = app.globalData.user;
     console.log(loginuser);
-    if('' == loginuser.wechanum || ''  == loginuser.jobnum){
+    if ('' == loginuser.wechanum || '' == loginuser.jobnum) {
       wx.showToast({
         title: '请先登录哦亲～',
         duration: 2500,
         mask: true,
         icon: 'none',
       });
-      setTimeout(function () {
+      setTimeout(function() {
         wx.navigateTo({
           url: '../../../../index/index'
         });
@@ -37,17 +38,12 @@ Page({
     }
     return true;
   },
-  setThisTypes: function(obj){
-    console.log(this.data.types);
-    this.data.types = obj;
-    console.log(this.data.types);
-  },
   // 加载资源类型的方法
-  loadTypes:function(callback){
+  loadTypes: function(callback) {
     var loginuser = app.globalData.user;
     var localtime = util.formatTime(new Date());
     // 异步回调必须要这样写，否则会报Cannot read property 'data' of undefined;at api request success callback function
-    var that = this;
+    var _this = this;
     wx.request({
       url: 'http://nevermore.myds.me:62/RS/getTypes',
       data: {
@@ -55,20 +51,26 @@ Page({
         jobnum: loginuser.jobnum,
         localtime: localtime
       },
-      header: { 'content-type': 'application/x-www-form-urlencoded' },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
       method: 'POST',
       dataType: 'json',
-      success: function (res) {
+      success: function(res) {
         var resp = res.data;
         //console.log(resp);
         if (resp.ResultCode == 0) {
-          // TODO:这里把获取到的帖子类型设置到此页面的data中
+          // 这里把获取到的帖子类型设置到此页面的data中
           var types = resp.Data.types;
-          console.log(types);
-          that.data.types = types;
+          // console.log(types);
+          tmp_types = types;
+          _this.setData({
+            types: tmp_types,
+            curTypeId: types[0].typeid
+          })
         }
       },
-      fail: function () {
+      fail: function() {
         wx.showToast({
           title: '服务器连接超时啦...',
           duration: 1000,
@@ -78,31 +80,51 @@ Page({
       }
     })
   },
+  // 资源类型选择器绑定事件
+  bindpickerchanged(e) {
+    var index = e.detail.value;
+    var types = this.data.types;
+    //console.log('current type index: ' + index);
+    this.setData({
+      type_index: e.detail.value,
+      curTypeId: types[index].typeid
+    });
+    //console.log(this.data);
+    // 加载帖子
+    this.loadRes(types[index].typeid);
+    //console.log(this.data)
+  },
   // 加载资源的方法
-  loadRes: function () {
+  loadRes: function(typeid) {
     var loginuser = app.globalData.user;
     var localtime = util.formatTime(new Date());
+    var _this = this;
+    //console.log('current typeid: ' + typeid)
     wx.request({
       url: 'http://nevermore.myds.me:62/RS/getRes',
       data: {
         wechatnum: loginuser.wechatnum,
         jobnum: loginuser.jobnum,
         localtime: localtime,
-        typeid:this.data.currnetType
+        typeid: typeid
       },
-      header: { 'content-type': 'application/x-www-form-urlencoded' },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
       method: 'POST',
       dataType: 'json',
-      success: function (result) {
+      success: function(result) {
         var resp = result.data;
-        console.log(resp);
+        //console.log(resp);
         if (resp.ResultCode == 0) {
-          // TODO:这里把获取到的帖子类型设置到此页面的data中
-          console.log(resp.Data);
-          
+          // 把获取到的帖子类型设置到此页面的data中
+          //console.log(resp.Data);
+          _this.setData({
+            list:resp.Data.resources
+          });
         }
       },
-      fail: function () {
+      fail: function() {
         wx.showToast({
           title: '服务器连接超时啦...',
           duration: 1000,
@@ -112,25 +134,29 @@ Page({
       }
     })
   },
+
+
+
+
+
+
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     // 登录检查
-    if (true != this.loginStatusValid()){
+    if (true != this.loginStatusValid()) {
       return;
     }
     // 加载帖子类型
     this.loadTypes();
-    // 加载帖子
-    //this.loadRes();
   },
 
-  
+
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

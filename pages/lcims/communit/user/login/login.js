@@ -81,7 +81,7 @@ Page({
       dataType: 'json',
       success: function (data) {
         var resp = data.data;
-        console.log(resp);
+        //console.log(resp);
         if (resp.ResultCode == 0) {
           wx.showToast({
             title: '登录成功啦～',

@@ -5,7 +5,10 @@
     "pages/lcims/communit/user/checkin/checkin",
     "pages/lcims/communit/user/login/login",
     "pages/lcims/communit/resource/share/commnuity",
-    "pages/lcims/communit/resource/publish/publishres"
+    "pages/lcims/communit/resource/publish/publishres",
+    "pages/lcims/communit/meeting/meetingmain",
+    "pages/lcims/communit/meeting/map/map",
+    "pages/lcims/communit/meeting/signin/signin"
   ],
   "window": {
     "backgroundTextStyle": "light",

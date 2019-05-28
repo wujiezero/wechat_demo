@@ -28,9 +28,16 @@ Page({
       url: '../lcims/communit/user/login/login'
     })
   },
+  // 跳转到社区主页
   jump2community: function(){
     wx.navigateTo({
       url: '../lcims/communit/resource/share/commnuity',
+    })
+  },
+  // 跳转到会议助手首页
+  jump2meetingmain: function(){
+    wx.navigateTo({
+      url: '../lcims/communit/meeting/meetingmain',
     })
   },
   onLoad: function () {

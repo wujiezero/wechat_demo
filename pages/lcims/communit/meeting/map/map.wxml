@@ -1,0 +1,17 @@
+<!--pages/lcims/communit/meetting/map/map.wxml-->
+<text>欢迎来到WHERE ARE THEY！</text>
+<text>\n</text>
+<text>\n</text>
+<text>\n</text>
+<view class='contanior'>
+  <view class='head-view'></view>
+  <view class='btn-view'>
+    <text>看看大家都在哪儿~</text>
+    <map show-location="true" show-compass="true" enable-zoom="true"
+         enable-scroll="true" >
+    </map>
+
+  </view>
+  <view class='body-view'></view>
+  <view class='foot-view'></view>
+</view>

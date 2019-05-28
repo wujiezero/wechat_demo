@@ -13,14 +13,17 @@
     <text>⛱️️️</text>
     <text>\n\n</text>
   </view>
-  
+  <!-- 登录前可见 -->
   <view class='before-login' wx:if="{{!islogin}}">
     <button bindtap='jump2checkin'>去注册</button>
     <text>\n</text>
     <button bindtap='jump2login'>去登录</button>
   </view>
+  <!-- 登录后可见 -->
   <view class='after-login' wx:if="{{islogin}}">
     <button bindtap='jump2community'>逛社区</button>
+    <text>\n</text>
+    <button bindtap='jump2meetingmain'>会议助手</button>
   </view>
   
 </view>

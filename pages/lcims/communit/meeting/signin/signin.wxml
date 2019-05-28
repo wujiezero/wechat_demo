@@ -1,0 +1,21 @@
+<!--pages/lcims/communit/meeting/signin/signin.wxml-->
+<text>pages/lcims/communit/meeting/signin/signin.wxml</text>
+<view class='contanior'>
+  <view class='head-view'></view>
+  <view class='btn-view'>
+
+    <button bindtap='meetingSign' bindtap='meetingSign'>确认参加</button>
+    <text>\n</text>
+    <text>\n</text>
+    <button bindtap='cancleSign' bindtap='cancleSign'>计划有变</button>
+
+  </view>
+  <view class='body-view'>
+    <text>本次参加的成员有：</text>
+    <view wx:for-items="{{members}}" wx:for-item="item" wx:key="item.id">
+      <text>姓名：{{item.name}}</text>
+      <text>微信号：{{item.wechatnum}}</text>
+    </view>
+  </view>
+  <view class='foot-view'></view>
+</view>

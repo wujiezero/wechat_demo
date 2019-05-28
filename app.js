@@ -47,3 +47,31 @@ App({
     
   }
 })
+
+// 第一个tabBar一定要是首页，否则不显示tabBar
+// 会导致跳转功能失效
+// "tabBar": {
+//   "color": "#a9b7b7",
+//     "selectedColor": "#11cd6e",
+//       "borderStyle": "black",
+//         "list": [
+//           {
+//             "pagePath": "pages/index/index",
+//             "text": "首页",
+//             "iconPath": "icons/buttons/home.png",
+//             "selectedIconPath": "icons/buttons/home.png"
+//           },
+//           {
+//             "pagePath": "pages/lcims/communit/meeting/meetingmain",
+//             "text": "会议助手",
+//             "iconPath": "icons/buttons/home.png",
+//             "selectedIconPath": "icons/buttons/home.png"
+//           },
+//           {
+//             "pagePath": "pages/lcims/communit/resource/share/commnuity",
+//             "text": "社区",
+//             "iconPath": "icons/buttons/home.png",
+//             "selectedIconPath": "icons/buttons/home.png"
+//           }
+//         ]
+// },

@@ -24,6 +24,8 @@
     <button bindtap='jump2community'>逛社区</button>
     <text>\n</text>
     <button bindtap='jump2meetingmain'>会议助手</button>
+    <text>\n</text>
+    <button bindtap='jump2apprecommend'>小程序推荐</button>
   </view>
   
 </view>

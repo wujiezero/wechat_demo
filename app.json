@@ -8,7 +8,8 @@
     "pages/lcims/communit/resource/publish/publishres",
     "pages/lcims/communit/meeting/meetingmain",
     "pages/lcims/communit/meeting/map/map",
-    "pages/lcims/communit/meeting/signin/signin"
+    "pages/lcims/communit/meeting/signin/signin",
+    "pages/lcims/communit/amusement/recommend/recapps"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -16,5 +17,6 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "navigateToMiniProgramAppIdList":["wx29dc47a5840221dd","wx71d589ea01ce3321"]
 }

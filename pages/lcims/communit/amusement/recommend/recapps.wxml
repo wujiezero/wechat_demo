@@ -1,0 +1,14 @@
+<!--pages/lcims/communit/amusement/recommend/recapps.wxml-->
+<text>这里展示推荐的小程序列表</text>
+<text>\n</text>
+<text>\n</text>
+<view class='contanior'>
+  <view class='head-view'></view>
+  <view class='btn-view'>
+    <button bindtap='jump2game1'>我要猫咪</button>
+    <text>\n</text>
+    <button bindtap='jump2busquery'>公交查询</button>
+  </view>
+  <view class='body-view'></view>
+  <view class='foot-view'></view>
+</view>

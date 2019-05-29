@@ -40,6 +40,12 @@ Page({
       url: '../lcims/communit/meeting/meetingmain',
     })
   },
+  // 跳转到小程序推荐页面
+  jump2apprecommend: function() {
+    wx.navigateTo({
+      url: '../lcims/communit/amusement/recommend/recapps',
+    })
+  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({

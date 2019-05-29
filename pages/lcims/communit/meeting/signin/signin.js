@@ -8,37 +8,145 @@ Page({
    * 页面的初始数据
    */
   data: {
-    members:[
-      {id:"1",name:"aa",wechatnum:"wn-a1"},
-      {id:"2",name:"bb",wechatnum:"wn-b1"},
-      {id:"3",name:"cc",wechatnum:"wn-c1"}
-      ] //参加会议的成员
+    members:[] //参加会议的成员
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.loadMenbers();
   },
   // 会议/聚会签到方法
   meetingSign: function(){
     var loginuser = app.globalData.user;
-    var me = { id: "3", name: loginuser.wechatnum, wechatnum: loginuser.wechatnum }
-    var tmp_members = this.data.members;
-    tmp_members.push(me);
-    this.setData({
-      members:tmp_members
+    var localtime = util.formatTime(new Date());
+    var _this = this;
+    wx.request({
+      url: 'http://nevermore.myds.me:62/SI/sign',
+      data: {
+        wechatnum: loginuser.wechatnum,
+        jobnum: loginuser.jobnum,
+        localtime: localtime
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      method: 'POST',
+      dataType: 'json',
+      success: function (res) {
+        var resp = res.data;
+        //console.log(resp);
+        if (resp.ResultCode == 0) {
+          wx.showToast({
+            title: '签到成功～',
+            duration: 2000,
+            mask: true,
+            icon: 'success',
+          });
+          _this.loadMenbers();
+        } else {
+          wx.showToast({
+            title: '签到失败:' + resp.ResultDesc,
+            duration: 2000,
+            mask: true,
+            icon: 'none',
+          });
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '服务器连接超时啦...',
+          duration: 2000,
+          mask: true,
+          icon: 'none',
+        });
+      }
     })
-    console.log(this.data.members)
   },
   // 取消行程方法
   cancleSign: function(){
-    // 1.发请求从数据库删除记录
-    // 2.重新查询member列表，setData
+    var loginuser = app.globalData.user;
+    var localtime = util.formatTime(new Date());
+    var _this = this;
+    wx.request({
+      url: 'http://nevermore.myds.me:62/SI/unSign',
+      data: {
+        wechatnum: loginuser.wechatnum,
+        jobnum: loginuser.jobnum,
+        localtime: localtime
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      method: 'POST',
+      dataType: 'json',
+      success: function (res) {
+        var resp = res.data;
+        //console.log(resp);
+        if (resp.ResultCode == 0) {
+          wx.showToast({
+            title: '取消成功~',
+            duration: 2000,
+            mask: true,
+            icon: 'success',
+          });
+          _this.loadMenbers();
+        } else {
+          wx.showToast({
+            title: '取消失败:' + resp.ResultDesc,
+            duration: 2000,
+            mask: true,
+            icon: 'none',
+          });
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '服务器连接超时啦...',
+          duration: 2000,
+          mask: true,
+          icon: 'none',
+        });
+      }
+    })
   },
   // 查询参加活动的成员
   loadMenbers: function(){
-
+    var loginuser = app.globalData.user;
+    var localtime = util.formatTime(new Date());
+    var _this = this;
+    wx.request({
+      url: 'http://nevermore.myds.me:62/SI/querySign',
+      data: {
+        wechatnum: loginuser.wechatnum,
+        jobnum: loginuser.jobnum,
+        localtime: localtime
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      method: 'POST',
+      dataType: 'json',
+      success: function (res) {
+        var resp = res.data;
+        //console.log(resp);
+        if (resp.ResultCode == 0) {
+          var _members = resp.Data.signs;
+          // console.log(_members);
+          _this.setData({
+            members: _members
+          })
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '服务器连接超时啦...',
+          duration: 1000,
+          mask: true,
+          icon: 'none',
+        });
+      }
+    })
   }
 })

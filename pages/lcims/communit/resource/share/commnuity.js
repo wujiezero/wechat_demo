@@ -151,7 +151,8 @@ Page({
     // 加载帖子类型
     this.loadTypes();
   },
-
+  onReady: function(options) {
+  },
 
   /**
    * 用户点击右上角分享

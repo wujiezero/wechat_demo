@@ -1,5 +1,8 @@
 <!--pages/lcims/communit/meeting/signin/signin.wxml-->
-<text>pages/lcims/communit/meeting/signin/signin.wxml</text>
+<text>欢迎参加会议签到～</text>
+<text>\n</text>
+<text>签到后2小时内可取消（点击计划有变即可取消签到）</text>
+<text>\n</text>
 <view class='contanior'>
   <view class='head-view'></view>
   <view class='btn-view'>
@@ -12,9 +15,18 @@
   </view>
   <view class='body-view'>
     <text>本次参加的成员有：</text>
-    <view wx:for-items="{{members}}" wx:for-item="item" wx:key="item.id">
-      <text>姓名：{{item.name}}</text>
-      <text>微信号：{{item.wechatnum}}</text>
+    <text>\n</text>
+    <text>\n</text>
+    <view class='menbers-view'>
+    
+      <view wx:for-items="{{members}}" wx:for-item="item" wx:key="item.id" wx:for-index="index">
+        <text>序号：{{index+1}}</text><text>\n</text>
+        <text>姓名：{{item.name}}</text><text>\n</text>
+        <text>微信号：{{item.wechatnum}}</text><text>\n</text>
+        <text>签到日期：{{item.signdate}}</text><text>\n</text>
+        <text>~ ~ ~</text>
+      </view>
+    
     </view>
   </view>
   <view class='foot-view'></view>

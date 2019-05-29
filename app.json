@@ -10,7 +10,8 @@
     "pages/lcims/communit/meeting/map/map",
     "pages/lcims/communit/meeting/signin/signin",
     "pages/lcims/communit/amusement/recommend/recapps",
-    "pages/lcims/communit/meeting/colleague/manage/query/list"
+    "pages/lcims/communit/meeting/colleague/manage/query/list",
+    "pages/lcims/communit/resource/comment/list/comments"
   ],
   "window": {
     "backgroundTextStyle": "light",

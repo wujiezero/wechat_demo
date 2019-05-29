@@ -1,5 +1,8 @@
 <!--pages/lcims/communit/meeting/colleague/manage/query/list.wxml-->
 <text>这里展示同事列表</text>
+<text>\n</text>
+<text></text>
+<text>\n</text>
 <view class='contanior'>
 
   <view class='head-view'>
@@ -11,10 +14,38 @@
   </view>
   <view class='body-view'>
 
+    <view class='resources-shower'>
+      <text>同事列表：</text>
+      <text>\n</text>
+      <view id="{{item.wechatnum}}"
+            class='user-item' 
+            bindtap='queryThis' 
+            wx:for-items="{{members}}" 
+            wx:for-item="item" 
+            wx:key="{{item.wechatnum}}"
+            wx:for-index="index">
+          <view>序号: {{index+1}}</view>
+          <view>姓名: {{item.name}}</view>
+          <view>工号: {{item.jobnum}}</view>
+          <view>坐标: {{item.locatenum}}</view>
+      </view>
+    </view>
+
   </view>
 
   <view class='foot-view'>
-
+    <modal  title='用户资料' 
+            hidden="{{modalFlag}}" 
+            bindconfirm="hidemodal" bindcancel="hidemodal"
+            >
+      <view>姓名: {{queryUser.name}}</view>
+      <view>工号: {{queryUser.jobnum}}</view>
+      <view>微信号: {{queryUser.wechatnum}}</view>
+      <view wx:if="{{queryUser.sex == 1}}">性别: 男</view>
+      <view wx:else>性别: 女</view>
+      <view>个人简介: {{queryUser.introduction}}</view>
+      <view>注册日期: {{queryUser.regdate}}</view>
+    </modal>
   </view>
   
 </view>

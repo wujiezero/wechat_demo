@@ -17,6 +17,12 @@ button{
 input{
   margin: 5px;
   border: lightblue solid 1px;
-  height: 50px;
+  height: 45px;
   width: 200px;
+}
+
+textarea{
+  margin: 5px;
+  border: lightblue solid 1px;
+  width: 100%;
 }

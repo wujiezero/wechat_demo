@@ -1,5 +1,5 @@
 // pages/lcims/communit/meetting/meettingmain.js
-var app = getApp;
+var app = getApp();
 var util = require('../../../../utils/util.js');
 Page({
   /**

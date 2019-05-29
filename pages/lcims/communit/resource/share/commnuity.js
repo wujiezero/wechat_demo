@@ -8,6 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    modalFlag: true,
+    commenttitle: '',
+    commenttext: '',
     type_index: 0,
     curTypeId: 0,
     types: [],
@@ -21,7 +24,7 @@ Page({
   // 用户登录状态校验
   loginStatusValid: function() {
     var loginuser = app.globalData.user;
-    console.log(loginuser);
+    //console.log(loginuser);
     if ('' == loginuser.wechanum || '' == loginuser.jobnum) {
       wx.showToast({
         title: '请先登录哦亲～',
@@ -120,7 +123,7 @@ Page({
           // 把获取到的帖子类型设置到此页面的data中
           //console.log(resp.Data);
           _this.setData({
-            list:resp.Data.resources
+            list: resp.Data.resources
           });
         }
       },
@@ -134,12 +137,6 @@ Page({
       }
     })
   },
-
-
-
-
-
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -151,13 +148,54 @@ Page({
     // 加载帖子类型
     this.loadTypes();
   },
-  onReady: function(options) {
-  },
+  onReady: function(options) {},
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
 
+  },
+  commenttitle(e) {
+    var title = e.detail.value;
+    console.log(title);
+    this.setData({
+      commenttitle: title
+    })
+  },
+  commenttext(e) {
+    var text = e.detail.value;
+    console.log(text);
+    this.setData({
+      commenttext: text
+    })
+  },
+  showmodal: function() {
+    this.setData({
+      modalFlag: false
+    })
+  },
+  hidemodal: function() {
+    console.log('关闭弹窗...')
+    this.setData({
+      modalFlag: true
+    })
+  },
+  // 提交快速评论
+  submitcomment: function () {
+    console.log('提交评论...')
+    console.log(this.data.commenttitle);
+    console.log(this.data.commenttext);
+    // TODO:提交评论，之后把评论正文和标题设空
+    this.setData({
+      modalFlag: true
+    })
+  },
+  //跳到所有评论页面展示评论
+  jump2allcomments:function(event) {
+    console.log(event)
+    wx.navigateTo({
+      url: '../comment/list/comments',
+    })
   }
 })

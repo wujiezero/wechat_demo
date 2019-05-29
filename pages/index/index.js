@@ -76,7 +76,7 @@ Page({
     this.setData({
       islogin:app.globalData.islogin
     })
-    console.log(this.data.islogin);
+    // console.log(this.data.islogin);
   },
   getUserInfo: function(e) {
     console.log(e)

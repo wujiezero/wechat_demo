@@ -109,7 +109,7 @@ Page({
     })
   },
   publishRes: function(){
-    console.log('准备发布资源...');
+    //console.log('准备发布资源...');
     var loginuser = app.globalData.user;
     var localtime = util.formatTime(new Date());
     console.log(loginuser);
@@ -135,11 +135,17 @@ Page({
         //console.log(resp);
         if (resp.ResultCode == 0) {
           wx.showToast({
-            title: '发布成功啦～快去社区看看吧',
-            duration: 2500,
+            title: '发布成功啦～',
+            duration: 2000,
             mask: true,
             icon: 'success',
           });
+          // 跳转到社区首页
+          setTimeout(function () {
+            wx.navigateTo({
+              url: '../share/commnuity'
+            });
+          }, 2500);
         } else {
           wx.showToast({
             title: '啊哦～没发布成功...'+resp.ResultDesc,

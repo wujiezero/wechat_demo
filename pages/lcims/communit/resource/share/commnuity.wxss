@@ -1,1 +1,19 @@
 /* pages/lcims/communit/resource/share/commnuity.wxss */
+.resource-item{
+  background-color: lightblue;
+  margin-top: 15px;
+}
+
+.section{
+  height: 60px;
+  background-color: rgb(202, 230, 202);
+}
+
+.fastcom-btn{
+  height: 40px;
+  width: 45%;
+  background-color: rgb(94, 204, 207);
+  margin-left: 10px;
+  margin-top: 10px;
+  display: inline-block;
+}

@@ -63,7 +63,7 @@ Page({
   // 登录按钮点击事件
   tap2login: function(){
     var loginuser = this.data.user;
-    console.log(loginuser);
+    //console.log(loginuser);
     if(true != this.loginValid()){
       return;
     }

@@ -1,0 +1,37 @@
+<!--pages/lcims/communit/resource/comment/list/comments.wxml-->
+<text>评论展示页</text>
+<text>\n</text>
+<text>\n</text>
+
+
+<view class='contanior'>
+
+  <view class='head-view'>
+
+  </view>
+
+  <view class='btn-view'>
+
+  </view>
+  <view class='body-view'>
+
+    <view class='comments-view'>
+    
+      <view wx:for-items="{{comments}}" wx:for-item="item" wx:key="{{item.id}}">
+
+        <view>标题: {{item.title}}</view>
+        <view>正文: {{item.text}}</view>
+        <view>用户: {{item.wechatnum}}</view>
+        <view>评论日期: {{item.pubdate}}</view>
+
+      </view>
+
+    </view>
+
+  </view>
+
+  <view class='foot-view'>
+
+  </view>
+
+</view>

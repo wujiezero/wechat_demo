@@ -4,7 +4,8 @@
   <text>分享有价值的资源吧～～</text>
   <view class='head-view'>
 
-    <text>---------------</text>
+    <text>\n</text>
+    <text>\n</text>
   </view>
 
 
@@ -16,7 +17,8 @@
               当前：{{types[type_index].name}}
             </view>
           </picker>
-          <view>---------------</view>
+          <view>\n</view>
+          <view>\n</view>
         </view>
 
         <view class='input-view'>
@@ -28,7 +30,8 @@
               placeholder='这里输入正文'>
           </textarea>
         </view>
-    <text>---------------</text>
+    <text>\n</text>
+    <text>\n</text>
   </view>
   <view class='btn-view'>
     <button bindtap='publishRes'>发布</button>

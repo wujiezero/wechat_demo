@@ -1,15 +1,18 @@
 <!--pages/lcims/communit/user/login/login.wxml-->
-<text>欢迎来到登录页面～</text>
-
 <view class='contanior'>
+  <text>欢迎来到登录页面～</text>
+  <text>\n</text>
 
   <view class='login-input'>
+      <text>\n</text>
       微信号：
       <input type='text' placeholder='请输入微信号' bindblur='bindwechatnuminput'></input>
+      <text>\n</text>
       工号：
       <input type='text' placeholder='请输入工号' bindblur='bindjobnuminput'></input>
   </view>
 
+  <text>\n</text>
   <view class='btn-area'>
       <button bindtap='tap2login'>登录</button>
   </view>

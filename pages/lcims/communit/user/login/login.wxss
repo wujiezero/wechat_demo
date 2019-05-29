@@ -1,1 +1,15 @@
 /* pages/lcims/communit/user/login/login.wxss */
+input{
+  margin: 5px;
+  border: lightblue solid 1px;
+  height: 50px;
+  width: 200px;
+}
+
+.contanior{
+  font-size: 20px;
+}
+
+button{
+  background-color: lightskyblue;
+}

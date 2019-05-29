@@ -85,7 +85,7 @@ Page({
         if (resp.ResultCode == 0) {
           wx.showToast({
             title: '登录成功啦～',
-            duration: 2500,
+            duration: 1500,
             mask: true,
             icon: 'success',
           });
@@ -97,7 +97,7 @@ Page({
             wx.navigateTo({
               url: '../../../../index/index'
             });
-          }, 3000);
+          }, 2000);
         } else if (resp.ResultCode == 5) {
           wx.showToast({
             title: '登录信息不正确～',

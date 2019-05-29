@@ -5,14 +5,21 @@
 <text>\n</text>
 <view class='contanior'>
   <view class='head-view'></view>
+
   <view class='btn-view'>
 
+    <button bindtap='jump2colleaguequery'>我的同事们</button>
+    <text>\n</text>
     <button bindtap='jump2map'>看看大家都在哪</button>
     <text>\n</text>
     <button bindtap='jump2signin'>去签到</button>
-
   </view>
-  <view class='body-view'></view>
-  <view class='foot-view'></view>
+
+  <view class='body-view'>
+  </view>
+
+  <view class='foot-view'>
+  </view>
+
 </view>
 

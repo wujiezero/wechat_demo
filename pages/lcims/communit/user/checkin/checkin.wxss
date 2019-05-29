@@ -1,1 +1,27 @@
 /* pages/lcims/communit/user/checkin/checkin.wxss */
+
+input{
+  margin: 5px;
+  border: lightblue solid 1px;
+  height: 50px;
+  width: 200px;
+}
+
+textarea{
+  margin: 5px;
+  border: lightblue solid 1px;
+  height: 200px;
+  width: 250px;
+}
+
+.contanior{
+  font-size: 20px;
+}
+
+.sex-section picker{
+  background-color: rgb(158, 202, 132);
+}
+
+button{
+  background-color: lightskyblue;
+}

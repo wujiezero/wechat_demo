@@ -1,0 +1,20 @@
+<!--pages/lcims/communit/meeting/colleague/manage/query/list.wxml-->
+<text>这里展示同事列表</text>
+<view class='contanior'>
+
+  <view class='head-view'>
+
+  </view>
+
+  <view class='btn-view'>
+
+  </view>
+  <view class='body-view'>
+
+  </view>
+
+  <view class='foot-view'>
+
+  </view>
+  
+</view>

@@ -9,7 +9,8 @@
     "pages/lcims/communit/meeting/meetingmain",
     "pages/lcims/communit/meeting/map/map",
     "pages/lcims/communit/meeting/signin/signin",
-    "pages/lcims/communit/amusement/recommend/recapps"
+    "pages/lcims/communit/amusement/recommend/recapps",
+    "pages/lcims/communit/meeting/colleague/manage/query/list"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -18,5 +19,8 @@
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
-  "navigateToMiniProgramAppIdList":["wx29dc47a5840221dd","wx71d589ea01ce3321"]
+  "navigateToMiniProgramAppIdList": [
+    "wx29dc47a5840221dd",
+    "wx71d589ea01ce3321"
+  ]
 }

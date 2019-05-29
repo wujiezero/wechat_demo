@@ -27,6 +27,11 @@ Page({
       url: 'signin/signin',
     })
   },
+  jump2colleaguequery: function() {
+    wx.navigateTo({
+      url: 'colleague/manage/query/list',
+    })
+  }
 
   
 })

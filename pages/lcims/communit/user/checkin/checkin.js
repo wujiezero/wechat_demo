@@ -84,6 +84,7 @@ Page({
     this.setData({
       sexindex: e.detail.value
     });
+    this.data.user.sex = e.detail.value
     console.log(e.detail);
   },
   /**

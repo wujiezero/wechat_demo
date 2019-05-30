@@ -1,7 +1,8 @@
 <!--pages/lcims/communit/meeting/signin/signin.wxml-->
 <text>欢迎参加会议签到～</text>
 <text>\n</text>
-<text>签到后2小时内可取消（点击计划有变即可取消签到）</text>
+<text>签到后一段时间内可取消</text>
+<text>（点击计划有变即可取消签到）</text>
 <text>\n</text>
 <view class='contanior'>
   <view class='head-view'></view>

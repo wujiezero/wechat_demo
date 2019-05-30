@@ -23,7 +23,7 @@
     </view>
     
     自我介绍：
-    <textarea placeholder='输入自我介绍' bindblur='bindintroductioninput'></textarea>
+    <textarea placeholder='输入自我介绍' bindinput='bindintroductioninput'></textarea>
   </view>
 
   <view class='btn-area'>

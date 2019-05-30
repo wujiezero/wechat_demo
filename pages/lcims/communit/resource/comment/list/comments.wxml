@@ -7,6 +7,11 @@
 <view class='contanior'>
 
   <view class='head-view'>
+    <view class='submit-comment-view'>
+      标题:<input placeholder='输入标题' bindblur='titleOnBlur'></input>
+      正文:<textarea class='comment-text' placeholder='输入评论正文' bindinput='textOnBlur'></textarea>
+      <button bindtap='submitComment'>提交评论</button>
+    </view>
 
   </view>
 
@@ -17,7 +22,7 @@
 
     <view class='comments-view'>
     
-      <view wx:for-items="{{comments}}" wx:for-item="item" wx:key="{{item.id}}">
+      <view class='comment-item' wx:for-items="{{comments}}" wx:for-item="item" wx:key="{{item.id}}">
 
         <view>标题: {{item.title}}</view>
         <view>正文: {{item.text}}</view>

@@ -32,7 +32,7 @@
           <view>作者：{{item.wechatnum}}</view>
           <view>正文：{{item.text}}</view>
           <view class='fast-btn-view'>
-            <button class='fastcom-btn' bindtap='showmodal'>快速评论</button>
+            <button class='fastcom-btn' bindtap='showmodal' id="{{item.rid}}">快速评论</button>
             <button class='fastcom-btn' bindtap='jump2allcomments' id="{{item.rid}}">查看所有评论</button>
           </view>
       </view>
@@ -45,8 +45,8 @@
             hidden="{{modalFlag}}" 
             bindconfirm="submitcomment" bindcancel="hidemodal" showcancle="false">
       <view class='pub-comment-view'>
-        标题: <input placeholder='输入标题' bindblur='commenttitle'></input>
-        正文: <textarea placeholder='输入正文' bindblur='commenttext'></textarea>
+        标题: <input placeholder='输入标题' bindinput='commenttitle'></input>
+        正文: <textarea placeholder='输入正文' bindinput='commenttext'></textarea>
       </view>
     </modal>
 

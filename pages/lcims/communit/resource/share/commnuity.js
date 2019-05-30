@@ -9,6 +9,7 @@ Page({
    */
   data: {
     modalFlag: true,
+    rid:'',
     commenttitle: '',
     commenttext: '',
     type_index: 0,
@@ -170,32 +171,87 @@ Page({
       commenttext: text
     })
   },
-  showmodal: function() {
+  /**
+   * 展示评论模态框事件
+   */
+  showmodal: function(event) {
+    var resId = event.currentTarget.id;
     this.setData({
-      modalFlag: false
+      modalFlag: false,
+      rid:resId
     })
   },
+  /**
+   * 关闭评论模态框事件
+   */
   hidemodal: function() {
     console.log('关闭弹窗...')
     this.setData({
       modalFlag: true
     })
   },
-  // 提交快速评论
+  /**
+   * 提交评论模态框事件
+   */
   submitcomment: function () {
     console.log('提交评论...')
-    console.log(this.data.commenttitle);
-    console.log(this.data.commenttext);
-    // TODO:提交评论，之后把评论正文和标题设空
-    this.setData({
-      modalFlag: true
+    console.log(this.data);
+    // 提交快速评论
+    var loginuser = app.globalData.user;
+    var localtime = util.formatTime(new Date());
+    var _this = this;
+    wx.request({
+      url: 'http://nevermore.myds.me:62/CO/postComment',
+      data: {
+        wechatnum: loginuser.wechatnum,
+        jobnum: loginuser.jobnum,
+        localtime: localtime,
+        rid: _this.data.rid,
+        title:_this.data.commenttitle,
+        text:_this.data.commenttext
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      method: 'POST',
+      dataType: 'json',
+      success: function (result) {
+        var resp = result.data;
+        //console.log(resp);
+        if (resp.ResultCode == 0) {
+          console.log('评论成功');
+          //把评论正文和标题设空,关闭模态框
+          _this.setData({
+            modalFlag: true,
+            rid: '',
+            commenttitle: '',
+            commenttext: '',
+          });
+          // 弹窗提示评论成功
+          wx.showToast({
+            title: '评论成功',
+            duration: 1000,
+            mask: true,
+            icon: 'success',
+          });
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '服务器连接超时啦...',
+          duration: 1000,
+          mask: true,
+          icon: 'none',
+        });
+      }
     })
   },
   //跳到所有评论页面展示评论
   jump2allcomments:function(event) {
-    console.log(event)
+    var rid = event.currentTarget.id;
+    //console.log(rid);
     wx.navigateTo({
-      url: '../comment/list/comments',
+      url: '../comment/list/comments?rid='+rid,
     })
   }
 })

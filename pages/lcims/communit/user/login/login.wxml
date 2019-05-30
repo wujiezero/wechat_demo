@@ -9,7 +9,7 @@
       <input type='text' placeholder='请输入微信号' bindblur='bindwechatnuminput'></input>
       <text>\n</text>
       工号：
-      <input type='text' placeholder='请输入工号' bindblur='bindjobnuminput'></input>
+      <input type='text' placeholder='请输入工号' bindinput='bindjobnuminput'></input>
   </view>
 
   <text>\n</text>

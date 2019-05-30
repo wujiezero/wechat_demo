@@ -1,1 +1,5 @@
 /* pages/lcims/communit/resource/comment/list/comments.wxss */
+.comment-item{
+  background-color: lightcyan;
+  margin-top: 10px;
+}
